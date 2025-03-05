@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript Functions in HTML</title>
+</head>
+<body>
+
+  <h1>JavaScript Functions in HTML</h1>
+
+  <p id="output"></p>
+
+  <button onclick="addNumbers()">Add Numbers</button>
+  <button onclick="greetUser()">Greet User</button>
+  <button onclick="checkEven()">Check Even</button>
+  <button onclick="findLargestNumber()">Find Largest</button>
+  <button onclick="reverseText()">Reverse Text</button>
+  <button onclick="performOperationExample()">Callback Example</button>
+
+  <script>
+    // A simple function that adds two numbers
+    function add(a, b) {
+      return a + b;
+    }
+
+    function addNumbers() {
+      let sum = add(5, 3);
+      document.getElementById("output").innerHTML = "Sum: " + sum;
+    }
+
+    // A function that greets a user
+    function greet(name) {
+      return "Hello, " + name + "!";
+    }
+
+    function greetUser() {
+      let greeting = greet("Alice");
+      document.getElementById("output").innerHTML = greeting;
+    }
+
+    // A function that checks if a number is even
+    function isEven(number) {
+      return number % 2 === 0;
+    }
+
+    function checkEven() {
+      let num = 7;
+      let result = isEven(num);
+      document.getElementById("output").innerHTML = num + " is even: " + result;
+    }
+
+    // A function that returns the largest number in an array
+    function findLargest(arr) {
+      if (arr.length === 0) {
+        return null; // Return null for an empty array
+      }
+
+      let largest = arr[0];
+      for (let i = 1; i < arr.length; i++) {
+        if (arr[i] > largest) {
+          largest = arr[i];
+        }
+      }
+      return largest;
+    }
+
+    function findLargestNumber() {
+      let numbers = [10, 5, 20, 8, 15];
+      let largestNumber = findLargest(numbers);
+      document.getElementById("output").innerHTML = "Largest number: " + largestNumber;
+    }
+
+    // A function that reverses a string
+    function reverseString(str) {
+      return str.split("").reverse().join("");
+    }
+
+    function reverseText() {
+      let reversed = reverseString("hello");
+      document.getElementById("output").innerHTML = "Reversed: " + reversed;
+    }
+
+    //A function that utilizes a callback.
+    function performOperation(num1, num2, operation){
+      return operation(num1, num2);
+    }
+
+    function multiply(a,b){
+      return a * b;
+    }
+
+    function subtract(a,b){
+      return a - b;
+    }
+
+    function performOperationExample(){
+      let multiplyResult = performOperation(5,5,multiply);
+      let subtractResult = performOperation(10,2,subtract);
+      document.getElementById("output").innerHTML = "Multiply: " + multiplyResult + "<br>" + "Subtract: " + subtractResult;
+    }
+  </script>
+
+</body>
+</html>
